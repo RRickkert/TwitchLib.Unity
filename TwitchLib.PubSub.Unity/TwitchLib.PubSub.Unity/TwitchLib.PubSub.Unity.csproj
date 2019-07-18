@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+	<AssemblyName>TwitchLib.PubSub.Unity</AssemblyName>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TwitchLib.PubSub\TwitchLib.PubSub\TwitchLib.PubSub.csproj" />
+    <ProjectReference Include="..\..\TwitchLib.Unity.Common\TwitchLib.Unity.Common\TwitchLib.Unity.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\TwitchLib.Unity.Common\Assemblies\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="del $(OutDir)*.pdb&#xD;&#xA;del $(OutDir)TwitchLib.PubSub.Unity.deps.json&#xD;&#xA;del $(OutDir)UnityEngine.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)TwitchLib.PubSub.Unity.* $(OutDir)TwitchLib.PubSub.Unity\&#xD;&#xA;del $(OutDir)TwitchLib.PubSub.Unity.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)TwitchLib.PubSub.* $(OutDir)TwitchLib.PubSub\&#xD;&#xA;del $(OutDir)TwitchLib.PubSub.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)TwitchLib.Communication.* $(OutDir)TwitchLib.Communication\&#xD;&#xA;del $(OutDir)TwitchLib.Communication.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)TwitchLib.Unity.Common.* $(OutDir)TwitchLib.Unity.Common\&#xD;&#xA;del $(OutDir)TwitchLib.Unity.Common.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)Microsoft.Extensions.Logging.Abstractions.dll $(OutDir)Logging\&#xD;&#xA;del $(OutDir)Microsoft.Extensions.Logging.Abstractions.dll&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)Newtonsoft.Json.dll $(OutDir)Json\&#xD;&#xA;del $(OutDir)Newtonsoft.Json.dll" />
+  </Target>
+
+</Project>

@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace TwitchLib.Unity
 {
-    public class Api : TwitchAPI
+    public class TwitchAPI : Api.TwitchAPI
     {
         /// <summary>
         /// Waits for the task to execute and invokes the provided action with the task's result on Unity's main thread.

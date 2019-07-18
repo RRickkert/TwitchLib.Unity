@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TwitchLib.Api\TwitchLib.Api\TwitchLib.Api.csproj" />
+    <ProjectReference Include="..\..\TwitchLib.Unity.Common\TwitchLib.Unity.Common\TwitchLib.Unity.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\TwitchLib.Unity.Common\Assemblies\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup>
+  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+</PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="del $(OutDir)*.pdb&#xD;&#xA;del $(OutDir)Serilog.*&#xD;&#xA;del $(OutDir)System.*&#xD;&#xA;del $(OutDir)UnityEngine.*&#xD;&#xA;del $(OutDir)Microsoft.CSharp.dll&#xD;&#xA;del $(OutDir)Microsoft.Extensions.DependencyInjection.Abstractions.dll&#xD;&#xA;del $(OutDir)Microsoft.Extensions.Logging.dll&#xD;&#xA;del $(OutDir)Microsoft.Extensions.Options.dll&#xD;&#xA;del $(OutDir)Microsoft.Extensions.Primitives.dll&#xD;&#xA;del $(OutDir)TwitchLib.Api.Unity.deps.json&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)TwitchLib.Api.Unity.* $(OutDir)TwitchLib.Api.Unity\&#xD;&#xA;del $(OutDir)TwitchLib.Api.Unity.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)TwitchLib.Api.* $(OutDir)TwitchLib.Api\&#xD;&#xA;del $(OutDir)TwitchLib.Api.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)TwitchLib.Unity.Common.* $(OutDir)TwitchLib.Unity.Common\&#xD;&#xA;del $(OutDir)TwitchLib.Unity.Common.*&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)Microsoft.Extensions.Logging.Abstractions.dll $(OutDir)Logging\&#xD;&#xA;del $(OutDir)Microsoft.Extensions.Logging.Abstractions.dll&#xD;&#xA;&#xD;&#xA;xcopy /Y $(OutDir)Newtonsoft.Json.dll $(OutDir)Json\&#xD;&#xA;del $(OutDir)Newtonsoft.Json.dll" />
+  </Target>
+</Project>

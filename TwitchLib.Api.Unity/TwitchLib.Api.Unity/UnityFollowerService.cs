@@ -3,6 +3,7 @@ using UnityEngine;
 using TwitchLib.Api.Interfaces;
 using TwitchLib.Api.Services;
 using TwitchLib.Api.Services.Events.FollowerService;
+using TwitchLib.Api.Services.Events;
 
 namespace TwitchLib.Unity
 {

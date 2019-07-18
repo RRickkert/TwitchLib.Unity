@@ -7,3 +7,6 @@
 [submodule "TwitchLib.Api"]
 	path = TwitchLib.Api
 	url = https://github.com/TwitchLib/TwitchLib.Api.git
+[submodule "TwitchLib.Communication"]
+	path = TwitchLib.Communication
+	url = https://github.com/TwitchLib/TwitchLib.Communication
