@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchLib.Client.Enums", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchLib.Client.Models", "..\TwitchLib.Client\TwitchLib.Client.Models\TwitchLib.Client.Models.csproj", "{91A6A19A-814B-4CFD-B2F8-A5B89E0792BD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchLib.Communication", "..\TwitchLib.Client\TwitchLib.Communication\src\TwitchLib.Communication\TwitchLib.Communication.csproj", "{9F6EF9F6-CCD7-4720-8029-93C48FEF3C2A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchLib.Client.Unity", "TwitchLib.Client.Unity\TwitchLib.Client.Unity.csproj", "{C99F494D-726B-445C-B7AC-6EDC0A5A7505}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchLib.Unity.Common", "..\TwitchLib.Unity.Common\TwitchLib.Unity.Common\TwitchLib.Unity.Common.csproj", "{F1930AB6-2AB5-4E68-A5A7-7537DAFEAFDD}"

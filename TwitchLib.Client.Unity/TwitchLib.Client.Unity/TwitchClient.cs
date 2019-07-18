@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Extensions.Logging;
 using TwitchLib.Client;
 using TwitchLib.Client.Enums;
 using TwitchLib.Client.Events;
@@ -209,7 +210,7 @@ namespace TwitchLib.Unity
         public new event EventHandler<OnUnaccountedForArgs> OnUnaccountedFor;
         #endregion
 
-        public TwitchClient(IClient client = null, ClientProtocol protocol = ClientProtocol.WebSocket, IClientOptions clientOptions = null) : base(client, protocol, clientOptions)
+        public TwitchClient(IClient client = null, ClientProtocol protocol = ClientProtocol.WebSocket, ILogger<Client.TwitchClient> clientOptions = null) : base(client, protocol, clientOptions)
         {
             ThreadDispatcher.EnsureCreated();
             base.OverrideBeingHostedCheck = true;

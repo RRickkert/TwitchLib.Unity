@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchLib.Unity.Common", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchLib.PubSub", "..\TwitchLib.PubSub\TwitchLib.PubSub\TwitchLib.PubSub.csproj", "{6A68C2AC-65F6-48A9-B78F-191354D15C4C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitchLib.Communication", "..\TwitchLib.PubSub\TwitchLib.Communication\src\TwitchLib.Communication\TwitchLib.Communication.csproj", "{0A7640C1-6B59-4A62-AC3C-E71A528C9234}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
