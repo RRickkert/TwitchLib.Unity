@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="del $(OutDir)TwitchLib.Unity.Common.deps.json&#xD;&#xA;del $(OutDir)*.pdb&#xD;&#xA;del $(OutDir)UnityEngine.dll" />
+    <Exec Command="del $(OutDir)TwitchLib.Unity.Common.deps.json&#xD;&#xA;del $(OutDir)*.pdb&#xD;&#xA;del $(OutDir)UnityEngine.dll&#xD;&#xA;&#xD;&#xA;echo -------- [STARTING] Building TwitchLib.Unity.Common DLLs.. --------&#xD;&#xA;&#xD;&#xA;SET UnityProjectOutDir=$(OutDir)&#xD;&#xA;SET UnityProjectOutDir=%UnityProjectOutDir:~0,-1%&#xD;&#xA;SET OutDir=$(SolutionDir)Builds&#xD;&#xA;&#xD;&#xA;SET TwitchLibUnitySharedFolder=%UnityProjectOutDir%&#xD;&#xA;&#xD;&#xA;SET StandaloneFolder=%OutDir%\Standalone&#xD;&#xA;SET SeparatedFolder=%OutDir%\Separated&#xD;&#xA;if not exist %StandaloneFolder% mkdir %StandaloneFolder%&#xD;&#xA;if not exist %SeparatedFolder% mkdir %SeparatedFolder%&#xD;&#xA;&#xD;&#xA;SET StandaloneOutputFilePath=%StandaloneFolder%\TwitchLib.Unity.Common.Standalone&#xD;&#xA;SET SeparatedOutputFilePath=%SeparatedFolder%\TwitchLib.Unity.Common&#xD;&#xA;&#xD;&#xA;&quot;$(SolutionDir)..\TwitchLib.Unity.Common\Assemblies\ILMerge.exe&quot; /wildcards /out:%StandaloneOutputFilePath%.dll %TwitchLibUnitySharedFolder%\*.dll&#xD;&#xA;&quot;$(SolutionDir)..\TwitchLib.Unity.Common\Assemblies\ILMerge.exe&quot; /wildcards /out:%SeparatedOutputFilePath%.dll %TwitchLibUnitySharedFolder%\*.dll&#xD;&#xA;&#xD;&#xA;del %StandaloneOutputFilePath%.pdb&#xD;&#xA;del %SeparatedOutputFilePath%.pdb&#xD;&#xA;&#xD;&#xA;echo -------- [COMPLETED] Built TwitchLib.Unity.Common DLLs! --------" />
   </Target>
 
 </Project>
